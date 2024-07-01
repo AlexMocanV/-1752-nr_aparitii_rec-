@@ -1,0 +1,38 @@
+int n=0;
+int verif(char a[],char sec[],int ver,int zero)
+{
+    if(sec[zero]!='\0'&& a[ver]!='\0')
+    {
+        //std::cout<<sec[zero]<<' '<<a[ver]<<'\n';
+        if(sec[zero]!=a[ver])
+        {
+            return 0;
+        }
+        ver++;
+        zero++;
+        return verif(a,sec,ver,zero);
+    }
+    //std::cout<<zero;
+    if(sec[zero]=='\0'){
+    return 1;
+    }
+    return 0;
+}
+unsigned nr_aparitii(char a[], char sec[])
+{
+    if(a[n]!='\0')
+    {
+        //std::cout<<a[n];
+        if(a[n]==sec[0])
+        {
+            n++;
+            return (verif(a,sec,n,1)==1)+nr_aparitii(a,sec);
+        }
+        else
+        {
+            n++;
+            return nr_aparitii(a,sec);
+        }
+    }
+    return 0;
+}
